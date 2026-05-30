@@ -1,0 +1,17 @@
+# Entorno virtual
+.venv/
+venv/
+ENV/
+
+# Caché de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos temporales o reportes dinámicos
+data/reports/vulnerability_report.json
+
+# Configuraciones de IDEs 
+.vscode/
+.idea/
