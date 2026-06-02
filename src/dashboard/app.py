@@ -86,14 +86,28 @@ if st.sidebar.button("ESCANEAR"):
         
         t_total = time.time() - t_start
         st.session_state.mttr = round((1 - (t_total / 600)) * 100, 1) 
-        
+                
         if success:
-            status.update(label="¡Escaneado con Éxito!", state="complete", expanded=False)
-            log_remediation_event(issue['issue_text'], issue['line_number'], ahorro, patch, success)
+            status.update(
+                label="¡Escaneado con Éxito!",
+                state="complete",
+                expanded=False
+            )
         else:
-            status.update(label="Escaneado con Advertencias", state="error", expanded=False)
+            status.update(
+                label="Escaneado con Advertencias",
+                state="error",
+                expanded=False
+            )
 
-    # COLUMNAS DE RESULTADOS (Como en tu imagen)
+        log_remediation_event(
+            issue['issue_text'],
+            issue['line_number'],
+            ahorro,
+            patch,
+            success
+        )
+    # COLUMNAS DE RESULTADOS 
     col1, col2 = st.columns(2)
     
     with col1:
@@ -106,7 +120,7 @@ if st.sidebar.button("ESCANEAR"):
     with col2:
         st.subheader("Solución Propuesta (Parche)")
         if success:
-            st.success("Estado: Validado Sintácticamente en Sandbox")
+            st.success("Estado: Validado por Sandbox y Reescaneo SAST")
         else:
             st.warning("Estado: Error de Validación")
         st.markdown("**Código del Parche Sugerido por Llama-3:**")
@@ -118,8 +132,8 @@ if st.sidebar.button("ESCANEAR"):
 st.markdown("---")
 st.subheader("Métricas de Rendimiento del Sistema")
 m1, m2, m3 = st.columns(3)
-m1.metric("Reducción del MTTR", f"-{st.session_state.mttr}%", help="Reducción del tiempo medio de remediación")
-m2.metric("Ahorro de Tokens", f"{st.session_state.ahorro}%", help="Optimización de tokens mediante poda AST")
+m1.metric("Reducción del MTTR", f"{st.session_state.mttr}%", help="Reducción del tiempo medio de remediación")
+m2.metric("Reducción de Contexto", f"{st.session_state.ahorro}%", help="Optimización de contexto mediante poda AST")
 
 # --- VISOR DE LA BASE DE DATOS (AUDITORÍA) CON CONTROL DE ERRORES ---
 st.markdown("---")

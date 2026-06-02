@@ -8,7 +8,7 @@ def log_remediation_event(vulnerability, line, ahorro, patch_code, success):
         "Fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "Vulnerabilidad": vulnerability,
         "Línea": line,
-        "Ahorro_Tokens": f"{ahorro}%",
+        "Reducción Contexto": f"{ahorro}%",
         "Parche": patch_code[:100] + "...",
         "Resultado": "VALIDADO" if success else "FALLIDO"
     }

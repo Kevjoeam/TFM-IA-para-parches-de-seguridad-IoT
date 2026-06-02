@@ -1,98 +1,34 @@
 [
     {
-        "Fecha": "2026-05-30 19:55:09",
-        "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
-        "Línea": 6,
-        "Ahorro_Tokens": "37.7%",
-        "Parche": "```\ndef download_update(url):\n    print(f\"Descargando actualización desde: {url}\")\n    subprocess.ru...",
-        "Resultado": "VALIDADO"
+        "Fecha": "2026-06-02 01:03:11",
+        "Vulnerabilidad": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+        "Línea": 15,
+        "Reducción Contexto": "17.2%",
+        "Parche": "```python\nimport ast\nfrom math import math\n\ndef calculate_sensor_metric(formula_str, sensor_value):\n...",
+        "Resultado": "FALLIDO"
     },
     {
-        "Fecha": "2026-05-30 19:54:11",
-        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
-        "Línea": 2,
-        "Ahorro_Tokens": "91.6%",
-        "Parche": "```python\nimport os\nimport subprocess\nimport pickle\nimport base64\nimport json\n\ndef process_gateway_r...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-05-30 19:42:11",
-        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
-        "Línea": 2,
-        "Ahorro_Tokens": "91.6%",
-        "Parche": "```python\nimport os\nimport subprocess\nimport pickle\nimport base64\n\ndef process_gateway_request(user_...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-05-30 19:12:16",
-        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
-        "Línea": 2,
-        "Ahorro_Tokens": "91.6%",
-        "Parche": "Here is the corrected code:\n\n```python\nimport os\nimport subprocess\nimport base64\nfrom typing import ...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-05-30 18:32:33",
-        "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
-        "Línea": 6,
-        "Ahorro_Tokens": "37.7%",
-        "Parche": "```\nimport subprocess\nimport json\n\ndef download_update(url):\n    print(f\"Descargando actualización d...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-05-30 18:13:08",
-        "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
-        "Línea": 6,
-        "Ahorro_Tokens": "62%",
-        "Parche": "```\nimport subprocess\nimport os\nfrom configparser import ConfigParser\n\ndef download_update(config):\n...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-04-25 14:54:33",
-        "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
-        "Línea": 17,
-        "Ahorro_Tokens": "73.2%",
-        "Parche": "```python\nimport subprocess\nimport json\n\n# 1. DETECCIÓN (RF1)\nreport_path = \"data/reports/vulnerabil...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-04-25 14:50:30",
-        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
-        "Línea": 2,
-        "Ahorro_Tokens": "91.6%",
-        "Parche": "```python\nimport os\nimport subprocess\nimport pickle\nimport base64\nfrom typing import List\n\ndef proce...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-04-25 14:46:45",
+        "Fecha": "2026-06-02 01:00:59",
         "Vulnerabilidad": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
         "Línea": 5,
-        "Ahorro_Tokens": "0.0%",
-        "Parche": "```python\nimport hashlib\nimport os\n\ndef hash_password(password):\n    return hashlib.sha256(password....",
+        "Reducción Contexto": "11.9%",
+        "Parche": "```python\nimport hashlib\nimport os\nfrom getpass import getpass\n\ndef hash_password(password):\n    sal...",
         "Resultado": "VALIDADO"
     },
     {
-        "Fecha": "2026-04-25 14:44:53",
+        "Fecha": "2026-06-02 00:59:19",
+        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
+        "Línea": 2,
+        "Reducción Contexto": "91.6%",
+        "Parche": "```\nimport os\nimport subprocess\nimport pickle\nimport base64\n\ndef process_gateway_request(user_input)...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-02 00:56:47",
         "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
         "Línea": 6,
-        "Ahorro_Tokens": "4.3%",
-        "Parche": "```\nimport subprocess\nfrom pathlib import Path\n\ndef download_update(url):\n    # Secure command injec...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-04-25 14:43:11",
-        "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
-        "Línea": 6,
-        "Ahorro_Tokens": "4.3%",
-        "Parche": "```python\nimport subprocess\nimport configparser\n\ndef download_update(config):\n    url = config.get('...",
-        "Resultado": "VALIDADO"
-    },
-    {
-        "Fecha": "2026-04-23 13:27:28",
-        "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
-        "Línea": 7,
-        "Ahorro_Tokens": "3.8%",
-        "Parche": "```python\nimport subprocess\nimport os\nfrom pathlib import Path\n\ndef download_update(url):\n    print(...",
+        "Reducción Contexto": "37.7%",
+        "Parche": "```python\nimport subprocess\nimport configparser\n\ndef download_update(url):\n    config = configparser...",
         "Resultado": "VALIDADO"
     }
 ]
