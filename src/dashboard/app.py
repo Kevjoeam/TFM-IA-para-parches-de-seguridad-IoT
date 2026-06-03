@@ -15,7 +15,7 @@ from validation.patch_validator import run_validation
 
 # Estados para métricas
 if 'ahorro' not in st.session_state: st.session_state.ahorro = 0.0
-if 'mttr' not in st.session_state: st.session_state.mttr = 0.0
+if 'mttr_seconds' not in st.session_state: st.session_state.mttr_seconds = 0.0
 
 # CONFIGURACIÓN ESTÉTICA 
 st.set_page_config(page_title="IoT Self-Healing Dashboard", layout="wide")
@@ -27,26 +27,32 @@ st.markdown("---")
 # --- BARRA LATERAL: CONFIGURACIÓN DEL SISTEMA ---
 st.sidebar.header("⚙️ Configuración del Sistema")
 
+
+# --- CONFIGURACIÓN DE CARPETA DE UPLOADS DE USUARIO ---
+upload_dir = os.path.join(project_root, "uploads")
+os.makedirs(upload_dir, exist_ok=True)  
+
 # 1. CARGADOR DE ARCHIVOS
 uploaded_file = st.sidebar.file_uploader("Subir nuevo Firmware/Script (.py)", type=["py"])
 
-# 2. BUSCADOR DINÁMICO DE ARCHIVOS EXISTENTES
-files_in_src = [f"src/{f}" for f in os.listdir(os.path.join(project_root, "src")) if f.endswith('.py')]
+# 2. BUSCADOR DINÁMICO DE ARCHIVOS EXISTENTES EN /uploads
+files_in_uploads = [f"uploads/{f}" for f in os.listdir(upload_dir) if f.endswith('.py')]
 
 # Lógica para determinar qué archivo analizar
 if uploaded_file is not None:
-    # Guardar físicamente el archivo en la carpeta src
-    target_file = f"src/{uploaded_file.name}"
-    save_path = os.path.join(project_root, "src", uploaded_file.name)
+    # Guardar físicamente el archivo en la carpeta aislada /uploads
+    target_file = f"uploads/{uploaded_file.name}"
+    save_path = os.path.join(upload_dir, uploaded_file.name)
     with open(save_path, "wb") as f:
         f.write(uploaded_file.getbuffer())
-    st.sidebar.info(f"📁 Usando archivo subido: {uploaded_file.name}")
+    st.sidebar.info(f" 📁Usando archivo subido: {uploaded_file.name}")
 else:
     target_file = st.sidebar.selectbox(
-        "O seleccionar archivo detectado en /src", 
-        options=files_in_src,
+        "O seleccionar archivo detectado en /uploads", 
+        options=files_in_uploads,
         help="Selecciona el código fuente del dispositivo IoT que deseas auditar."
     )
+
 
 st.sidebar.markdown("### Motores usados")
 st.sidebar.success("SAST Engine: Bandit")
@@ -85,7 +91,7 @@ if st.sidebar.button("ESCANEAR"):
         success = run_validation(patch)
         
         t_total = time.time() - t_start
-        st.session_state.mttr = round((1 - (t_total / 600)) * 100, 1) 
+        st.session_state.mttr_seconds = round(t_total, 1)
                 
         if success:
             status.update(
@@ -105,7 +111,8 @@ if st.sidebar.button("ESCANEAR"):
             issue['line_number'],
             ahorro,
             patch,
-            success
+            success,
+            st.session_state.mttr_seconds
         )
     # COLUMNAS DE RESULTADOS 
     col1, col2 = st.columns(2)
@@ -132,7 +139,7 @@ if st.sidebar.button("ESCANEAR"):
 st.markdown("---")
 st.subheader("Métricas de Rendimiento del Sistema")
 m1, m2, m3 = st.columns(3)
-m1.metric("Reducción del MTTR", f"{st.session_state.mttr}%", help="Reducción del tiempo medio de remediación")
+m1.metric("Tiempo de remediación automatizada", f"{st.session_state.mttr_seconds}s", help="Tiempo total del ciclo: detección → generación → validación")
 m2.metric("Reducción de Contexto", f"{st.session_state.ahorro}%", help="Optimización de contexto mediante poda AST")
 
 # --- VISOR DE LA BASE DE DATOS (AUDITORÍA) CON CONTROL DE ERRORES ---

@@ -1,34 +1,39 @@
 [
     {
-        "Fecha": "2026-06-02 01:03:11",
+        "Fecha": "2026-06-03 14:05:13",
         "Vulnerabilidad": "Use of possibly insecure function - consider using safer ast.literal_eval.",
         "Línea": 15,
         "Reducción Contexto": "17.2%",
-        "Parche": "```python\nimport ast\nfrom math import math\n\ndef calculate_sensor_metric(formula_str, sensor_value):\n...",
+        "Tiempo Remediación (s)": 82.4,
+        "Parche": "```python\nimport ast\nfrom typing import Dict\n\ndef calculate_sensor_metric(formula_str: str, sensor_v...",
         "Resultado": "FALLIDO"
     },
     {
-        "Fecha": "2026-06-02 01:00:59",
+        "Fecha": "2026-06-03 14:01:41",
         "Vulnerabilidad": "Use of weak MD5 hash for security. Consider usedforsecurity=False",
         "Línea": 5,
         "Reducción Contexto": "11.9%",
-        "Parche": "```python\nimport hashlib\nimport os\nfrom getpass import getpass\n\ndef hash_password(password):\n    sal...",
+        "Tiempo Remediación (s)": 38.9,
+        "Parche": "```python\nimport hashlib\nimport os\nfrom getpass import getpass\n\ndef hash_password(password):\n    # U...",
         "Resultado": "VALIDADO"
     },
     {
-        "Fecha": "2026-06-02 00:59:19",
+        "Fecha": "2026-06-03 14:00:30",
         "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
         "Línea": 2,
         "Reducción Contexto": "91.6%",
-        "Parche": "```\nimport os\nimport subprocess\nimport pickle\nimport base64\n\ndef process_gateway_request(user_input)...",
+        "Tiempo Remediación (s)": 23.3,
+        "Parche": "```python\nimport os\nimport subprocess\nimport pickle\nimport base64\nfrom typing import List\n\ndef proce...",
         "Resultado": "VALIDADO"
     },
-    {
-        "Fecha": "2026-06-02 00:56:47",
+
+     {
+        "Fecha": "2026-06-03 13:57:59",
         "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
         "Línea": 6,
         "Reducción Contexto": "37.7%",
-        "Parche": "```python\nimport subprocess\nimport configparser\n\ndef download_update(url):\n    config = configparser...",
+        "Tiempo Remediación (s)": 25.0,
+        "Parche": "```\nimport subprocess\nfrom urllib.parse import urlparse\n\ndef download_update(url):\n    parsed_url = ...",
         "Resultado": "VALIDADO"
     }
 ]

@@ -2,13 +2,14 @@ import os
 import json
 from datetime import datetime
 
-def log_remediation_event(vulnerability, line, ahorro, patch_code, success):
+def log_remediation_event(vulnerability, line, ahorro, patch_code, success, tiempo_segundos=0):
 
     event_data = {
         "Fecha": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "Vulnerabilidad": vulnerability,
         "Línea": line,
         "Reducción Contexto": f"{ahorro}%",
+        "Tiempo Remediación (s)": tiempo_segundos,
         "Parche": patch_code[:100] + "...",
         "Resultado": "VALIDADO" if success else "FALLIDO"
     }

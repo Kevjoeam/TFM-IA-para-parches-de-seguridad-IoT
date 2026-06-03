@@ -40,13 +40,19 @@ if (!(Test-Path ".venv")) {
     Write-Host "El entorno virtual ya existe." -ForegroundColor Gray
 }
 
-# 5. Crear Estructura de Carpetas de Datos
+# 5. Crear Estructura de Carpetas de Datos y Uploads
 $reportPath = "data/reports"
+$uploadPath = "uploads"
+
 if (!(Test-Path $reportPath)) {
     Write-Host "Creando estructura de directorios: $reportPath" -ForegroundColor Yellow
     New-Item -ItemType Directory -Path $reportPath -Force | Out-Null
-    Write-Host "Carpetas creadas." -ForegroundColor Green
 }
+if (!(Test-Path $uploadPath)) {
+    Write-Host "Creando carpeta de uploads para el usuario: $uploadPath" -ForegroundColor Yellow
+    New-Item -ItemType Directory -Path $uploadPath -Force | Out-Null
+}
+Write-Host "Carpetas de sistema configuradas." -ForegroundColor Green
 
 # 6. Instalar Dependencias
 if (Test-Path "requirements.txt") {
