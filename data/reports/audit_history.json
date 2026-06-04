@@ -1,5 +1,239 @@
 [
     {
+        "Fecha": "2026-06-04 01:58:04",
+        "Vulnerabilidad": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+        "Línea": 6,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 101.4,
+        "Parche": "```\nimport ast\nfrom typing import List\n\ndef process(data: str) -> List:\n    try:\n        return ast....",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 01:42:02",
+        "Vulnerabilidad": "Consider possible security implications associated with pickle module.",
+        "Línea": 2,
+        "Reducción Contexto": "76.1%",
+        "Tiempo Remediación (s)": 30.1,
+        "Parche": "Here is the corrected code:\n\n```python\nimport base64\nfrom typing import Dict\n\ndef load_device_config...",
+        "Resultado": "FALLIDO"
+    },
+    {
+        "Fecha": "2026-06-04 01:41:26",
+        "Vulnerabilidad": "Consider possible security implications associated with pickle module.",
+        "Línea": 2,
+        "Reducción Contexto": "76.1%",
+        "Tiempo Remediación (s)": 57.2,
+        "Parche": "Here is the corrected code:\n```\nimport base64\nimport json\n\ndef load_device_config(encoded_data):\n   ...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 01:40:19",
+        "Vulnerabilidad": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+        "Línea": 13,
+        "Reducción Contexto": "26.2%",
+        "Tiempo Remediación (s)": 67.1,
+        "Parche": "```python\nimport hashlib\n\ndef verify_firmware_signature(firmware_data, expected_hash):\n    actual_ha...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 01:38:28",
+        "Vulnerabilidad": "Consider possible security implications associated with pickle module.",
+        "Línea": 2,
+        "Reducción Contexto": "76.1%",
+        "Tiempo Remediación (s)": 46.1,
+        "Parche": "Here is the corrected code:\n\n```python\nimport base64\n\ndef load_device_config(encoded_data):\n    devi...",
+        "Resultado": "FALLIDO"
+    },
+    {
+        "Fecha": "2026-06-04 01:37:16",
+        "Vulnerabilidad": "Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.",
+        "Línea": 13,
+        "Reducción Contexto": "26.2%",
+        "Tiempo Remediación (s)": 75.4,
+        "Parche": "```python\ndef verify_firmware_signature(firmware_data, expected_hash):\n    actual_hash = hashlib.sha...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 01:35:52",
+        "Vulnerabilidad": "Consider possible security implications associated with pickle module.",
+        "Línea": 2,
+        "Reducción Contexto": "76.1%",
+        "Tiempo Remediación (s)": 81.7,
+        "Parche": "```python\nimport pickletools\nfrom cryptography.hazmat.primitives import serialization\nfrom cryptogra...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 01:14:51",
+        "Vulnerabilidad": "Possible SQL injection vector through string-based query construction.",
+        "Línea": 15,
+        "Reducción Contexto": "6.4%",
+        "Tiempo Remediación (s)": 91.8,
+        "Parche": "```python\nimport sqlite3\nfrom sqlite3 import Error\n\ndef get_device_data(device_id, table_name):\n    ...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 01:10:32",
+        "Vulnerabilidad": "Using xml.etree.ElementTree to parse untrusted XML data is known to be vulnerable to XML attacks. Replace xml.etree.ElementTree with the equivalent defusedxml package, or make sure defusedxml.defuse_stdlib() is called.",
+        "Línea": 2,
+        "Reducción Contexto": "84.2%",
+        "Tiempo Remediación (s)": 69.8,
+        "Parche": "Here is the corrected code:\n\n```python\nimport defusedxml.ElementTree as ET\n\ndef parse_device_config(...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 01:08:47",
+        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
+        "Línea": 3,
+        "Reducción Contexto": "80.1%",
+        "Tiempo Remediación (s)": 83.1,
+        "Parche": "```python\n# T14_MalformedContextCase.py\nimport os\nimport subprocess\n\ndef execute_firmware_command(cm...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 01:06:56",
+        "Vulnerabilidad": "Possible SQL injection vector through string-based query construction.",
+        "Línea": 15,
+        "Reducción Contexto": "20.6%",
+        "Tiempo Remediación (s)": 108.2,
+        "Parche": "```python\nimport sqlite3\nfrom sqlite3 import Error\n\ndef get_device_data(device_id):\n    \"\"\"\n    Esta...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 00:50:23",
+        "Vulnerabilidad": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+        "Línea": 6,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 47.2,
+        "Parche": "```\nimport ast\nimport subprocess\n\ndef process(data):\n    data = ast.literal_eval(data)\n    if isinst...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 00:48:58",
+        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
+        "Línea": 1,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 47.4,
+        "Parche": "```python\nimport subprocess\n\ndef ping(host):\n    subprocess.run(['ping', host])\n```\n\nNote: I have re...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 00:48:00",
+        "Vulnerabilidad": "Use of unsafe yaml load. Allows instantiation of arbitrary objects. Consider yaml.safe_load().",
+        "Línea": 4,
+        "Reducción Contexto": "15.9%",
+        "Tiempo Remediación (s)": 35.5,
+        "Parche": "```\ndef load_config(data):\n    return yaml.safe_load(data)\n```...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 00:47:04",
+        "Vulnerabilidad": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+        "Línea": 4,
+        "Reducción Contexto": "18.3%",
+        "Tiempo Remediación (s)": 41.8,
+        "Parche": "Here is the corrected code:\n\n```python\nimport secrets\nimport base64\n\ndef generate_token():\n    retur...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 00:46:07",
+        "Vulnerabilidad": "Use of insecure and deprecated function (mktemp).",
+        "Línea": 4,
+        "Reducción Contexto": "13.9%",
+        "Tiempo Remediación (s)": 48.4,
+        "Parche": "```\nimport tempfile\nimport os\n\ndef save_data(data):\n    tmp = tempfile.NamedTemporaryFile(mode='w', ...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 00:44:48",
+        "Vulnerabilidad": "Possible hardcoded password: 'admin123'",
+        "Línea": 2,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 15.9,
+        "Parche": "```\nimport secrets\nimport os\n\ndef connect():\n    password = os.environ.get('PASSWORD', str(secrets.t...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-04 00:44:15",
+        "Vulnerabilidad": "Possible hardcoded password: 'admin123'",
+        "Línea": 2,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 74.3,
+        "Parche": "```\nimport secrets\nimport os\n\ndef connect():\n    password_file = '/etc/iottopsecret.txt'\n    if not ...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-03 19:09:18",
+        "Vulnerabilidad": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+        "Línea": 6,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 21.2,
+        "Parche": "```python\nimport ast\nimport subprocess\n\ndef process(data):\n    return ast.literal_eval(data)\n```\n\nNo...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-03 19:05:41",
+        "Vulnerabilidad": "Use of possibly insecure function - consider using safer ast.literal_eval.",
+        "Línea": 6,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 33.0,
+        "Parche": "```\nimport ast\nimport json\n\ndef process(data):\n    return json.loads(data)\n```...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-03 19:04:18",
+        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
+        "Línea": 1,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 10.2,
+        "Parche": "```python\nimport subprocess\n\ndef ping(host):\n    args = ['ping', host]\n    subprocess.run(args)\n```...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-03 19:03:39",
+        "Vulnerabilidad": "Consider possible security implications associated with the subprocess module.",
+        "Línea": 1,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 27.9,
+        "Parche": "```python\nimport subprocess\n\ndef ping(host):\n    subprocess.run([\"ping\", host])\n```...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-03 19:02:54",
+        "Vulnerabilidad": "Use of unsafe yaml load. Allows instantiation of arbitrary objects. Consider yaml.safe_load().",
+        "Línea": 4,
+        "Reducción Contexto": "15.9%",
+        "Tiempo Remediación (s)": 28.7,
+        "Parche": "```python\nimport yaml\n\ndef load_config(data):\n    return yaml.safe_load(data)\n```...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-03 19:00:29",
+        "Vulnerabilidad": "Standard pseudo-random generators are not suitable for security/cryptographic purposes.",
+        "Línea": 4,
+        "Reducción Contexto": "18.3%",
+        "Tiempo Remediación (s)": 32.8,
+        "Parche": "```python\nimport secrets\nimport hashlib\n\ndef generate_token():\n    token = str(secrets.randbelow(899...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-03 18:59:34",
+        "Vulnerabilidad": "Use of insecure and deprecated function (mktemp).",
+        "Línea": 4,
+        "Reducción Contexto": "13.9%",
+        "Tiempo Remediación (s)": 37.0,
+        "Parche": "```\nimport tempfile\nimport os\n\ndef save_data(data):\n    tmp = tempfile.mkstemp()\n    file_descriptor...",
+        "Resultado": "VALIDADO"
+    },
+    {
+        "Fecha": "2026-06-03 18:55:57",
+        "Vulnerabilidad": "Possible hardcoded password: 'admin123'",
+        "Línea": 2,
+        "Reducción Contexto": "0.0%",
+        "Tiempo Remediación (s)": 64.9,
+        "Parche": "```\nimport os\nfrom typing import List\n\ndef connect() -> str:\n    config_path = \"/etc/config.ini\"\n   ...",
+        "Resultado": "VALIDADO"
+    },
+    {
         "Fecha": "2026-06-03 14:05:13",
         "Vulnerabilidad": "Use of possibly insecure function - consider using safer ast.literal_eval.",
         "Línea": 15,
@@ -26,8 +260,7 @@
         "Parche": "```python\nimport os\nimport subprocess\nimport pickle\nimport base64\nfrom typing import List\n\ndef proce...",
         "Resultado": "VALIDADO"
     },
-
-     {
+    {
         "Fecha": "2026-06-03 13:57:59",
         "Vulnerabilidad": "Starting a process with a shell, possible injection detected, security issue.",
         "Línea": 6,
