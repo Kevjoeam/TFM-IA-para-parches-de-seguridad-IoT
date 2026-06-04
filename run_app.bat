@@ -1,5 +1,5 @@
 @echo off
-title Lanzador TFM - Kevin Ammirata
+title Ejecutar Dashboard
 echo Iniciando Dashboard de Parche IoT...
 echo ---------------------------------------
 :: Activar entorno virtual si existe

@@ -13,7 +13,7 @@ if ($lastExitCode -ne 0) {
 }
 Write-Host "Python detectado: $pythonVersion"
 
-# 2. Comprobar Docker (Necesario para el Sandbox de Validación RF6)
+# 2. Comprobar Docker
 Write-Host "Comprobando Docker Desktop" -ForegroundColor Yellow
 docker ps > $null 2>&1
 if ($lastExitCode -ne 0) {
@@ -22,7 +22,7 @@ if ($lastExitCode -ne 0) {
     Write-Host "Docker está activo." -ForegroundColor Green
 }
 
-# 3. Comprobar Ollama (Necesario para la inferencia con Llama-3)
+# 3. Comprobar Ollama
 Write-Host "Comprobando servicio de IA (Ollama)" -ForegroundColor Yellow
 curl.exe -s http://localhost:11434/api/tags > $null
 if ($lastExitCode -ne 0) {
@@ -31,7 +31,7 @@ if ($lastExitCode -ne 0) {
     Write-Host "Ollama está activo." -ForegroundColor Green
 }
 
-# 4. Crear Entorno Virtual (.venv)
+# 4. Crear Entorno Virtual
 if (!(Test-Path ".venv")) {
     Write-Host "Creando entorno virtual de Python" -ForegroundColor Yellow
     python -m venv .venv
@@ -69,6 +69,6 @@ if (Test-Path "requirements.txt") {
 }
 
 Write-Host "------------------------------------------------------------" -ForegroundColor Cyan
-Write-Host "¡TODO LISTO!" -ForegroundColor Green
+Write-Host "TODO LISTO" -ForegroundColor Green
 Write-Host "Para lanzar el dashboard usa: .\run_app.bat" -ForegroundColor White
 Write-Host "------------------------------------------------------------" -ForegroundColor Cyan
